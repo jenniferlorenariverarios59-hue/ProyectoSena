@@ -22,28 +22,28 @@
                 <Columns>
                     <asp:TemplateField HeaderText="Instructor">
                         <ItemTemplate>
-                            <%# Eval("Instructor") %>
+                            <%# Eval("Instructor.Nombre") %>
                         </ItemTemplate>
                     </asp:TemplateField>
 
                     <asp:TemplateField HeaderText="Estado">
                         <ItemTemplate>
                             <strong class="text-primary">
-                                <%# Eval("EstadoPlan") %>
+                                <%# Eval("PlanInternoComite.EstadoPlan") %>
                             </strong>
                         </ItemTemplate>
                     </asp:TemplateField>
 
                     <asp:TemplateField HeaderText="Fecha de Asignacion">
                         <ItemTemplate>
-                            <%# Eval("FechaAsignacion") %>
+                            <%# Eval("PlanInternoComite.FechaAsignacion") %>
                         </ItemTemplate>
                     </asp:TemplateField>
 
                     <asp:TemplateField HeaderText="Fecha Limite">
                         <ItemTemplate>
                             <span class="badge badge-tech">
-                                <%# Eval("FechaLimite") %>
+                                <%# Eval("PlanInternoComite.FechaLimite") %>
                             </span>
                         </ItemTemplate>
                     </asp:TemplateField>

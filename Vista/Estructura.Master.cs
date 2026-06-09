@@ -43,7 +43,7 @@ namespace ProyectoSena.Vista
                 timer: 2000,
                 showConfirmButton: false
                 }}).then(() => {{
-                window.location.href = '../../Autenticacion/Inicio.aspx';
+                window.location.href = '../Autenticacion/Inicio.aspx';
                 }});";
  
             ScriptManager.RegisterStartupScript(this, GetType(), "CerrarSesion", script, true);
