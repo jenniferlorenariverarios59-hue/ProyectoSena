@@ -21,9 +21,9 @@ namespace ProyectoSena.Logica
         }
        
 
-        public Instructor MtInicioSesionInstructor(InicioSesion oinicioSesion)
+        public InstructorM MtInicioSesionInstructor(InicioSesion oinicioSesion)
         {
-            Instructor oIstructor = oInicioD.MtInicioInstructor (oinicioSesion);
+            InstructorM oIstructor = oInicioD.MtInicioInstructor (oinicioSesion);
 
             return oIstructor;
         }

@@ -12,7 +12,7 @@ namespace ProyectoSena.Logica
 
         InstructorD oInstructorD = new InstructorD();
 
-        public int MtRegistrarInstructor(Instructor oInstructor)
+        public int MtRegistrarInstructor(InstructorM oInstructor)
         {
             int Verificacion = 0;
 
@@ -22,18 +22,18 @@ namespace ProyectoSena.Logica
 
         }
 
-        public List<Instructor> MtObtenerInstructor(int IdAdmin)
+        public List<InstructorM> MtObtenerInstructor(int IdAdmin)
         {
-            List<Instructor> listarInstructor = oInstructorD.MtObtenerInstructor(IdAdmin);
+            List<InstructorM> listarInstructor = oInstructorD.MtObtenerInstructor(IdAdmin);
             return listarInstructor;
         }
 
-        public int MtEditarInstructor(Instructor oInstructor)
+        public int MtEditarInstructor(InstructorM oInstructor)
         {
             int Verificacion = oInstructorD.MtEditarInstructor(oInstructor);
             return Verificacion;
         }
-        public int MtEliminarInstructor(Instructor oInstructor)
+        public int MtEliminarInstructor(InstructorM oInstructor)
         {
              int Verificacion = oInstructorD.MtEliminarInstructor (oInstructor);
             return Verificacion;

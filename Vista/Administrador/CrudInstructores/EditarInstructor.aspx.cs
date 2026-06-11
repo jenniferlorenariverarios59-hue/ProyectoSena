@@ -30,7 +30,7 @@ namespace ProyectoSena.Vista.Administrador.CrudInstructores
             if (!IsPostBack)
             {
                 MtCargarFichas();
-                Instructor oInstructor = (Instructor)Session["EditarInstructor"];
+                InstructorM oInstructor = (InstructorM)Session["EditarInstructor"];
                 ddlTipoDocumento.Text = oInstructor.TipoDocumento;
                 txtNumeroDocumento.Text = oInstructor.NumeroDocumento;
                 txtNombres.Text = oInstructor.Nombre;
@@ -46,8 +46,8 @@ namespace ProyectoSena.Vista.Administrador.CrudInstructores
             FichaL oFichaL = new FichaL();
             List<Ficha> listaFichas = oFichaL.MtObtenerFicha(IdAdmin);
 
-            Instructor oInstructorV = (Instructor)Session["EditarInstructor"];
-            Instructor oInstructorE = new Instructor();
+            InstructorM oInstructorV = (InstructorM)Session["EditarInstructor"];
+            InstructorM oInstructorE = new InstructorM();
             oInstructorE.Id = oInstructorV.Id;
             oInstructorE.TipoDocumento = ddlTipoDocumento.Text;
             oInstructorE.NumeroDocumento = txtNumeroDocumento.Text;

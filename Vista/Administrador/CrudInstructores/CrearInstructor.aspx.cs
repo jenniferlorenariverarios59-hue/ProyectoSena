@@ -32,7 +32,7 @@ namespace ProyectoSena.Vista.Administrador.CrudInstructores
             FichaL oFichaL = new FichaL();
             List<Ficha> listaFichas = oFichaL.MtObtenerFicha(IdAdmin);
 
-            Instructor oInstructor = new Instructor();
+            InstructorM oInstructor = new InstructorM();
             oInstructor.TipoDocumento = ddlTipoDocumento.Text;
             oInstructor.NumeroDocumento = txtNumeroDocumento.Text;
             oInstructor.Nombre = txtNombres.Text;

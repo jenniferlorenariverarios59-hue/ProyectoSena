@@ -36,12 +36,12 @@ namespace ProyectoSena.Vista.Administrador.CrudInstructores
         protected void gvInstructores_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             InstructorL oInstructorL = new InstructorL();    
-            List<Instructor> listaInstructores = oInstructorL.MtObtenerInstructor(IdAdmin);
+            List<InstructorM> listaInstructores = oInstructorL.MtObtenerInstructor(IdAdmin);
 
             if (e.CommandName == "Editar")
             {
                 var codigo = e.CommandArgument;
-                Instructor instructorSeleccionado =
+                InstructorM instructorSeleccionado =
                     listaInstructores.Find(x => x.Id == Convert.ToInt32(codigo));
                 Session["EditarInstructor"] = instructorSeleccionado;
 
@@ -50,7 +50,7 @@ namespace ProyectoSena.Vista.Administrador.CrudInstructores
             else if (e.CommandName == "Eliminar")
             {
                 var codigo = e.CommandArgument;
-                Instructor InstructorSeleccionado = listaInstructores.Find(u => u.Id == Convert.ToInt32(codigo));
+                InstructorM InstructorSeleccionado = listaInstructores.Find(u => u.Id == Convert.ToInt32(codigo));
                 int verificacion = oInstructorL.MtEliminarInstructor(InstructorSeleccionado);
                 MtCargarInstructores();
             }

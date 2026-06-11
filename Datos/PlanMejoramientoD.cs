@@ -2,6 +2,7 @@
 using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -10,21 +11,21 @@ using System.Web;
 
 namespace ProyectoSena.Datos
 {
-    public class PlanInternoD
+    public class PlanMejoramientoD
 
 
     {
-        public List<Ficha> MtObtenerPlanInterno(PlanMejoramiento oPlanMejoramneto)
+        public List<PlanMejoramiento> MtObtenerPlanMejoramiento(int IdInstructor)
         {
 
-            List<Ficha> listaPlanMejoramiento  = new List<Ficha>();
+            List<PlanMejoramiento> listarPlanMejoramiento  = new List<PlanMejoramiento>();
 
             using (SqlConnection cn = ConexionDB.MtAbrirConexion())
             {
 
                 cn.Open();
 
-                string consulta = $@"Sp_ObtenerFichas";
+                string consulta = $@"Sp_ObtenerPlanes";
 
                 using (SqlCommand cmd = new SqlCommand(consulta, cn))
                 {
@@ -41,12 +42,15 @@ namespace ProyectoSena.Datos
                         PlanMejoramiento oPLanMejoramento = new PlanMejoramiento();
 
                         oPLanMejoramento.Id = Convert.ToInt32(item["Id"]);
+                        oPLanMejoramento.Instructor = new InstructorM();
+                        oPLanMejoramento.Instructor.Nombre = item["NombreInstructor"].ToString();
+                        oPLanMejoramento.Instructor.Apellido = item["ApellidoInstructor"].ToString();
                         oPLanMejoramento.Aprendiz = new AprendizM();
                         oPLanMejoramento.Aprendiz.Id = Convert.ToInt32(item["IdAprendiz"]);
                         oPLanMejoramento.Aprendiz.TipoDocumento = item["TipoDocumento"].ToString();
                         oPLanMejoramento.Aprendiz.NumeroDocumento = item["NumeroDocumento"].ToString();
-                        oPLanMejoramento.Aprendiz.Nombre = item["Nombre"].ToString();
-                        oPLanMejoramento.Aprendiz.Apellido = item["Apellido"].ToString();
+                        oPLanMejoramento.Aprendiz.Nombre = item["NombreAprendiz"].ToString();
+                        oPLanMejoramento.Aprendiz.Apellido = item["ApellidoAprendiz"].ToString();
                         oPLanMejoramento.Aprendiz.Ficha = new Ficha();
                         oPLanMejoramento.Aprendiz.Ficha.codigoFicha = item["CodigoFicha"].ToString();
                         oPLanMejoramento.Aprendiz.Ficha.NombrePrograma = new Programa();
@@ -60,31 +64,17 @@ namespace ProyectoSena.Datos
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     }
 
 
                 }
 
-                return listaPlanMejoramiento;
+                return listarPlanMejoramiento;
 
 
             }
         }
-        public int MtRegistrarPlan3Interno(PlanMejoramiento oPlanMejoramiento)
+        public int MtRegistrarPlanMejoramiento(PlanMejoramiento oPlanMejoramiento)
         {
             int verificacion = 0;
 
@@ -92,7 +82,7 @@ namespace ProyectoSena.Datos
             {
                 cn.Open();
 
-                string consulta = $@"Sp_RegistrarPlanInterno";
+                string consulta = $@"Sp_RegistrarPlanMejoramiento";
                 using (SqlCommand cmd = new SqlCommand(consulta, cn))
                 {
 
@@ -108,9 +98,6 @@ namespace ProyectoSena.Datos
                     cmd.Parameters.AddWithValue("@FechaLimite", oPlanMejoramiento.PlanInternoComite.FechaLimite);
                     cmd.Parameters.AddWithValue("@ResultadosIncumplidos", oPlanMejoramiento.PlanInternoComite.ResultadosIncumplidos);
                     cmd.Parameters.AddWithValue("@EstadoPlan", oPlanMejoramiento.PlanInternoComite.EstadoPlan);
-                    cmd.Parameters.AddWithValue("@EvaluacionProducto", oPlanMejoramiento.PlanInternoComite.EvaluacionProducto);
-                    cmd.Parameters.AddWithValue("@EvaluacionConocimiento", oPlanMejoramiento.PlanInternoComite.EvaluacionConocimiento);
-                    cmd.Parameters.AddWithValue("@EvaluacionDesempeno", oPlanMejoramiento.PlanInternoComite.EvaluacionDesempeno);
                     verificacion = cmd.ExecuteNonQuery();
 
                 }
@@ -121,7 +108,7 @@ namespace ProyectoSena.Datos
 
         
 
-        public int MtEditarPlanInternoD(PlanMejoramiento oPlanMejoramiento)
+        public int MtEditarPlanMejoramiento(PlanMejoramiento oPlanMejoramiento)
         {
             int Verificacion = 0;
 
@@ -148,9 +135,6 @@ namespace ProyectoSena.Datos
                     cmd.Parameters.AddWithValue("@FechaLimite", oPlanMejoramiento.PlanInternoComite.FechaLimite);
                     cmd.Parameters.AddWithValue("@ResultadosIncumplidos", oPlanMejoramiento.PlanInternoComite.ResultadosIncumplidos);
                     cmd.Parameters.AddWithValue("@EstadoPlan", oPlanMejoramiento.PlanInternoComite.EstadoPlan);
-                    cmd.Parameters.AddWithValue("@EvaluacionProducto", oPlanMejoramiento.PlanInternoComite.EvaluacionProducto);
-                    cmd.Parameters.AddWithValue("@EvaluacionConocimiento", oPlanMejoramiento.PlanInternoComite.EvaluacionConocimiento);
-                    cmd.Parameters.AddWithValue("@EvaluacionDesempeno", oPlanMejoramiento.PlanInternoComite.EvaluacionDesempeno);
                     Verificacion = cmd.ExecuteNonQuery();
 
 
@@ -162,7 +146,7 @@ namespace ProyectoSena.Datos
         }
 
 
-        public int MtEliminarPlanInterno(PlanMejoramiento oPlanMejoramiento)
+        public int MtEliminarPlanMejoramiento(PlanMejoramiento oPlanMejoramiento)
         {
 
             int Verificacion = 0;
@@ -185,7 +169,41 @@ namespace ProyectoSena.Datos
 
         }
 
+
+        public int MtEvaluacionPlan(PlanMejoramiento oPlanMejoramiento)
+        {
+            int Verificacion = 0;
+
+            using (SqlConnection cn = ConexionDB.MtAbrirConexion())
+            {
+
+                cn.Open();
+
+                string Consulta = "";
+
+                using (SqlCommand cmd = new SqlCommand(Consulta ,cn ))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@Id", oPlanMejoramiento.PlanInternoComite.Id);
+                    cmd.Parameters.AddWithValue("@EvaluacionProducto", oPlanMejoramiento.PlanInternoComite.EvaluacionProducto);
+                    cmd.Parameters.AddWithValue("@EvaluacionConocimiento", oPlanMejoramiento.PlanInternoComite.EvaluacionConocimiento);
+                    cmd.Parameters.AddWithValue("@EvaluacionDesempe", oPlanMejoramiento.PlanInternoComite.EvaluacionDesempeno);
+                    cmd.Parameters.AddWithValue("@ObservacionesNombre", oPlanMejoramiento.Observacion.Nombre);
+                    cmd.Parameters.AddWithValue("@ObservacionDescripcion", oPlanMejoramiento.Observacion.Descripcion);
+                    Verificacion = cmd.ExecuteNonQuery();
+
+                    
+
+                }
+
+
+
+            }
+            return Verificacion;
+        }
     }
+    
 
 }
 

@@ -79,7 +79,7 @@ namespace ProyectoSena.Datos
                         Observaciones oObservacion = new Observaciones();
                         oObservacion.Nombre = item["Nombre"].ToString();
                         oObservacion.Descripcion = item["Descripcion"].ToString();
-                        oObservacion.nombreInstructor = new Instructor();
+                        oObservacion.nombreInstructor = new InstructorM();
                         oObservacion.nombreInstructor.Nombre = item["Nombre"].ToString();
                         lsitaObservaciones.Add(oObservacion);
                     }
@@ -114,7 +114,7 @@ namespace ProyectoSena.Datos
                         oPlan.Id = Convert.ToInt32(item["Id"]);
                         oPlan.Aprendiz = new AprendizM();
                         oPlan.Aprendiz.Nombre = item["Aprendiz"].ToString();
-                        oPlan.Instructor = new Instructor();
+                        oPlan.Instructor = new InstructorM();
                         oPlan.Instructor.Nombre =  item["Instructor"].ToString();
                         oPlan.PlanInternoComite = new PlanInterno();
                         oPlan.PlanInternoComite.FechaAsignacion = Convert.ToDateTime(item["FechaAsignacion"]);
@@ -127,5 +127,6 @@ namespace ProyectoSena.Datos
 
             }return listaPlanes;
         }
+
     }
 }

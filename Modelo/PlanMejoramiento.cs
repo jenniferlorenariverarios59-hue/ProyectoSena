@@ -12,7 +12,7 @@ namespace ProyectoSena.Modelo
 
         public AprendizM Aprendiz { get; set; }
 
-        public Instructor Instructor { get; set; }
+        public InstructorM Instructor { get; set; }
 
         public PlanInterno PlanInternoComite { get; set; }
 

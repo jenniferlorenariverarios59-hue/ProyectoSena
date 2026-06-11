@@ -10,6 +10,6 @@ namespace ProyectoSena.Modelo
         public int Id { get; set; }
         public string Nombre { get; set; }
         public string Descripcion {  get; set; }
-        public Instructor nombreInstructor { get; set; }
+        public InstructorM nombreInstructor { get; set; }
     }
 }

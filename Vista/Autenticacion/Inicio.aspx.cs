@@ -55,7 +55,7 @@ namespace ProyectoSena.Vista
             }
             else if (oinicioSesion.Rol == "Instructor")
             {
-                Instructor oInstructor = oSesionL.MtInicioSesionInstructor(oinicioSesion);
+                InstructorM oInstructor = oSesionL.MtInicioSesionInstructor(oinicioSesion);
                 if (oInstructor != null)
                 {
                     Session["Id"] = oInstructor.Id;

@@ -55,10 +55,10 @@ namespace ProyectoSena.Datos
 
 
         }
-        public Instructor MtInicioInstructor(InicioSesion oInicioSesion)
+        public InstructorM MtInicioInstructor(InicioSesion oInicioSesion)
         {
 
-            Instructor oInstructor = null;
+            InstructorM oInstructor = null;
 
 
 

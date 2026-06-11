@@ -6,7 +6,7 @@ using System.Web;
 
 namespace ProyectoSena.Modelo
 {
-    public class Instructor
+    public class InstructorM
     {
         public int Id { get; set; }
         public string TipoDocumento { get; set; }

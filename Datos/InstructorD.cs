@@ -12,9 +12,9 @@ namespace ProyectoSena.Datos
     public class InstructorD
     {
 
-        public List<Instructor> MtObtenerInstructor(int IdAdmin)
+        public List<InstructorM> MtObtenerInstructor(int IdAdmin)
         {
-            List<Instructor> listarInstructor = new List<Instructor>();
+            List<InstructorM> listarInstructor = new List<InstructorM>();
 
             using (SqlConnection cn = ConexionDB.MtAbrirConexion())
             {
@@ -34,7 +34,7 @@ namespace ProyectoSena.Datos
 
                     foreach (DataRow item in cd.Rows)
                     {
-                        Instructor oInstructor = new Instructor();
+                        InstructorM oInstructor = new InstructorM();
                         oInstructor.Id = Convert.ToInt32(item["Id"]);
                         oInstructor.TipoDocumento = item["TipoDocumento"].ToString();
                         oInstructor.NumeroDocumento = item["NumeroDocumento"].ToString();
@@ -52,7 +52,7 @@ namespace ProyectoSena.Datos
             }
             return listarInstructor;
         }
-        public int MtRegistrarInstructor(Instructor oInstrutor)
+        public int MtRegistrarInstructor(InstructorM oInstrutor)
         {
             int Verificacion = 0;
 
@@ -81,7 +81,7 @@ namespace ProyectoSena.Datos
             }
             return Verificacion;
         }
-        public int MtEditarInstructor(Instructor oInstructor )
+        public int MtEditarInstructor(InstructorM oInstructor )
         {
             int Verificacion = 0;
 
@@ -118,7 +118,7 @@ namespace ProyectoSena.Datos
 
         }
 
-        public int MtEliminarInstructor(Instructor oInstructor)
+        public int MtEliminarInstructor(InstructorM oInstructor)
         {
             int Verificacion = 0;
 

@@ -87,6 +87,11 @@
     <Content Include="Vista\CSS\InicioSesion.css" />
     <Content Include="Vista\Autenticacion\Inicio.aspx" />
     <Content Include="Vista\Administrador\CrudProgramas\Programas.aspx" />
+    <Content Include="Vista\Instructor\ConsultarAprendices.aspx" />
+    <Content Include="Vista\Instructor\ConsultarResultados.aspx" />
+    <Content Include="Vista\Instructor\CrudPlanMejoramento\CrearPlanMejoramento.aspx" />
+    <Content Include="Vista\Instructor\CrudPlanMejoramento\EdtarPlanMejoramiento.aspx" />
+    <Content Include="Vista\Instructor\CrudPlanMejoramento\PlanesMejoramento.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -97,7 +102,7 @@
     <Compile Include="Datos\FichaD.cs" />
     <Compile Include="Datos\InicioSesionD.cs" />
     <Compile Include="Datos\InstructorD.cs" />
-    <Compile Include="Datos\PlanInternoD.cs" />
+    <Compile Include="Datos\PlanMejoramientoD.cs" />
     <Compile Include="Datos\ProgramaD.cs" />
     <Compile Include="Logica\AprendizFichasL.cs" />
     <Compile Include="Logica\AprendizL.cs" />
@@ -105,6 +110,7 @@
     <Compile Include="Logica\FichaL.cs" />
     <Compile Include="Logica\InicioSesionL.cs" />
     <Compile Include="Logica\InstructorL.cs" />
+    <Compile Include="Logica\PlanMejoramientoL.cs" />
     <Compile Include="Logica\ProgramaL.cs" />
     <Compile Include="Modelo\ActividadesPropuestas.cs" />
     <Compile Include="Modelo\AdministradorM.cs" />
@@ -112,7 +118,7 @@
     <Compile Include="Modelo\Evidencia.cs" />
     <Compile Include="Modelo\Ficha.cs" />
     <Compile Include="Modelo\InicioSesion.cs" />
-    <Compile Include="Modelo\Instructor.cs" />
+    <Compile Include="Modelo\InstructorM.cs" />
     <Compile Include="Modelo\Observaciones.cs" />
     <Compile Include="Modelo\PlanInterno.cs" />
     <Compile Include="Modelo\PlanMejoramiento.cs" />
@@ -257,6 +263,41 @@
     </Compile>
     <Compile Include="Vista\Estructura.Master.designer.cs">
       <DependentUpon>Estructura.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Instructor\ConsultarAprendices.aspx.cs">
+      <DependentUpon>ConsultarAprendices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Instructor\ConsultarAprendices.aspx.designer.cs">
+      <DependentUpon>ConsultarAprendices.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Instructor\ConsultarResultados.aspx.cs">
+      <DependentUpon>ConsultarResultados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Instructor\ConsultarResultados.aspx.designer.cs">
+      <DependentUpon>ConsultarResultados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Instructor\CrudPlanMejoramento\CrearPlanMejoramento.aspx.cs">
+      <DependentUpon>CrearPlanMejoramento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Instructor\CrudPlanMejoramento\CrearPlanMejoramento.aspx.designer.cs">
+      <DependentUpon>CrearPlanMejoramento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Instructor\CrudPlanMejoramento\EdtarPlanMejoramiento.aspx.cs">
+      <DependentUpon>EdtarPlanMejoramiento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Instructor\CrudPlanMejoramento\EdtarPlanMejoramiento.aspx.designer.cs">
+      <DependentUpon>EdtarPlanMejoramiento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Instructor\CrudPlanMejoramento\PlanesMejoramento.aspx.cs">
+      <DependentUpon>PlanesMejoramento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Instructor\CrudPlanMejoramento\PlanesMejoramento.aspx.designer.cs">
+      <DependentUpon>PlanesMejoramento.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
