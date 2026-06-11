@@ -97,7 +97,6 @@
     <Compile Include="Datos\FichaD.cs" />
     <Compile Include="Datos\InicioSesionD.cs" />
     <Compile Include="Datos\InstructorD.cs" />
-    <Compile Include="Datos\PlanComiteD.cs" />
     <Compile Include="Datos\PlanInternoD.cs" />
     <Compile Include="Datos\ProgramaD.cs" />
     <Compile Include="Logica\AprendizFichasL.cs" />
@@ -115,7 +114,6 @@
     <Compile Include="Modelo\InicioSesion.cs" />
     <Compile Include="Modelo\Instructor.cs" />
     <Compile Include="Modelo\Observaciones.cs" />
-    <Compile Include="Modelo\PlanComite.cs" />
     <Compile Include="Modelo\PlanInterno.cs" />
     <Compile Include="Modelo\PlanMejoramiento.cs" />
     <Compile Include="Modelo\Programa.cs" />

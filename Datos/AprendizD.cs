@@ -75,7 +75,7 @@ namespace ProyectoSena.Datos
 
                 cn.Open();
 
-                string consulta = @"Insert into Aprendiz values (@TipoDocumento, @NumeroDocumento ,@Nombre ,@Apellido ,@Correo, @Contraseña ,@Telefono, 2)";
+                string consulta = @"Insert into Aprendiz values (@TipoDocumento, @NumeroDocumento ,@Nombre ,@Apellido ,@Correo, @Contraseña ,@Telefono, 'En Formación')";
 
                 using (SqlCommand cmd = new SqlCommand(consulta, cn))
 
@@ -90,6 +90,7 @@ namespace ProyectoSena.Datos
                     cmd.Parameters.AddWithValue("@Contraseña", oAprendiz.Contraseña);
                     cmd.Parameters.AddWithValue("@Telefono", oAprendiz.Telefono);
                     cmd.Parameters.AddWithValue("@Ficha", oAprendiz.Ficha.Id);
+                    verificacion = cmd.ExecuteNonQuery();
 
                 }
 

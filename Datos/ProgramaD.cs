@@ -42,7 +42,7 @@ namespace ProyectoSena.Datos
                         oPrograma.Estado = item["Estado"].ToString();
                         listaProgramas.Add(oPrograma);
 
-                    }
+                     }
 
                 }
             }
@@ -111,11 +111,11 @@ namespace ProyectoSena.Datos
             {
                 cn.Open();
 
-                string consulta = $@"Sp_EliminarPrograma";
+                string consulta = $@"delete from Programa where Id = @IdPrograma;";
 
                 using (SqlCommand cmd = new SqlCommand(consulta, cn))
                 {
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandType = CommandType.Text;
                     cmd.Parameters.AddWithValue("@IdPrograma", oPrograma.Id);
                     verificacion = cmd.ExecuteNonQuery();
                 }
