@@ -21,6 +21,8 @@ namespace ProyectoSena.Vista
                 btnAprendices.Visible = true;
             }else if (rol == "Instructor")
             {
+                btnAprendicesInstructor.Visible = true;
+                btnPlanesMejoramientoInstructor.Visible = true;
                 
             }else if (rol == "Aprendiz")
             {

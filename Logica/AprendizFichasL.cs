@@ -3,6 +3,7 @@ using ProyectoSena.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Web;
 
 namespace ProyectoSena.Logica
@@ -27,6 +28,13 @@ namespace ProyectoSena.Logica
             AprendizFichasD oAprendizFichasD = new AprendizFichasD();
             List<PlanMejoramiento> listaPlanes = oAprendizFichasD.MtObtenerPlanes(IdAprendiz);
             return listaPlanes;
+        }
+
+        public List<AprendizM> MtObtenerAprendicesDeInstructor(int IdInstructor)
+        {
+            AprendizFichasD oAprendizFichaD = new AprendizFichasD();
+            List<AprendizM> listaAprendices = oAprendizFichaD.MtObtenerAprendicesDeInstructor(IdInstructor);
+            return listaAprendices;
         }
     }
 }

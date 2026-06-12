@@ -29,7 +29,8 @@ namespace ProyectoSena.Datos
 
                 using (SqlCommand cmd = new SqlCommand(consulta, cn))
                 {
-                    
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdInstructor", IdInstructor);
 
                     DataTable dn = new DataTable();
 
@@ -51,15 +52,11 @@ namespace ProyectoSena.Datos
                         oPLanMejoramento.Aprendiz.NumeroDocumento = item["NumeroDocumento"].ToString();
                         oPLanMejoramento.Aprendiz.Nombre = item["NombreAprendiz"].ToString();
                         oPLanMejoramento.Aprendiz.Apellido = item["ApellidoAprendiz"].ToString();
-                        oPLanMejoramento.Aprendiz.Ficha = new Ficha();
-                        oPLanMejoramento.Aprendiz.Ficha.codigoFicha = item["CodigoFicha"].ToString();
-                        oPLanMejoramento.Aprendiz.Ficha.NombrePrograma = new Programa();
-                        oPLanMejoramento.Aprendiz.Ficha.NombrePrograma.Nombre = item["NombrePrograma"].ToString();
                         oPLanMejoramento.PlanInternoComite = new PlanInterno();
                         oPLanMejoramento.PlanInternoComite.FechaAsignacion = Convert.ToDateTime(item["FechaAsignacion"]);
-                        oPLanMejoramento.PlanInternoComite.FechaLimite = Convert.ToDateTime(item["FechaLimte"]);
+                        oPLanMejoramento.PlanInternoComite.FechaLimite = Convert.ToDateTime(item["FechaLimite"]);
                         oPLanMejoramento.PlanInternoComite.EstadoPlan= item["EstadoPlan"].ToString() ;
-
+                        listarPlanMejoramiento.Add(oPLanMejoramento);
 
 
 
@@ -82,23 +79,58 @@ namespace ProyectoSena.Datos
             {
                 cn.Open();
 
-                string consulta = $@"Sp_RegistrarPlanMejoramiento";
+                string consulta = $@"Insert into PlanInterno (FechaAsignacion, FechaLimite, EstadoPlan) values (@FechaAsignacion, @FechaLimite, @EstadoPlan); Select SCOPE_IDENTITY();";
                 using (SqlCommand cmd = new SqlCommand(consulta, cn))
                 {
 
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    cmd.Parameters.AddWithValue("@IdInstructor", oPlanMejoramiento.Instructor.Id);
-                    cmd.Parameters.AddWithValue("@IdAprendiz", oPlanMejoramiento.Aprendiz.Id);
-                    cmd.Parameters.AddWithValue("@NombreActividad", oPlanMejoramiento.ActividadPropuesta.Nombre);
-                    cmd.Parameters.AddWithValue("@Descripcion", oPlanMejoramiento.ActividadPropuesta.Descripcion);
-
-
+                    cmd.CommandType = CommandType.Text;
                     cmd.Parameters.AddWithValue("@FechaAsignacion", oPlanMejoramiento.PlanInternoComite.FechaAsignacion);
                     cmd.Parameters.AddWithValue("@FechaLimite", oPlanMejoramiento.PlanInternoComite.FechaLimite);
-                    cmd.Parameters.AddWithValue("@ResultadosIncumplidos", oPlanMejoramiento.PlanInternoComite.ResultadosIncumplidos);
                     cmd.Parameters.AddWithValue("@EstadoPlan", oPlanMejoramiento.PlanInternoComite.EstadoPlan);
-                    verificacion = cmd.ExecuteNonQuery();
+                    int IdPlanInterno = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    List<int> listaIdActividad = new List<int>();
+
+                    foreach (var item in oPlanMejoramiento.ActividadPropuesta)
+                    {
+                        string consulta2 = "Insert into Actividad values (@Nombre, @Descripcion); select SCOPE_IDENTITY();";
+
+                        SqlCommand cmd2 = new SqlCommand(consulta2, cn);
+                        cmd2.CommandType = CommandType.Text;
+                        cmd2.Parameters.AddWithValue("@Nombre", item.Nombre);
+                        cmd2.Parameters.AddWithValue("@Descripcion", item.Descripcion);
+
+                        int IdActividad = Convert.ToInt32(cmd2.ExecuteScalar());
+                        listaIdActividad.Add(IdActividad);
+                    }
+
+                    List<int> listaIdPlanMejoramiento = new List<int>();
+                    int IdPlanMejoramiento = 0;
+
+                    foreach (var item in listaIdActividad)
+                    {
+                        string consulta3 = "Insert into PlanMejoramiento (IdPlanInterno, IdAprendiz, IdActividad, IdInstructor) values (@IdPlanInterno, @IdAprendiz, @IdActividad, @IdInstructor); select SCOPE_IDENTITY();";
+
+                        SqlCommand cmd3 = new SqlCommand(consulta3, cn);
+                        cmd3.CommandType = CommandType.Text;
+                        cmd3.Parameters.AddWithValue("@IdPlanInterno", IdPlanInterno);
+                        cmd3.Parameters.AddWithValue("@IdAprendiz", oPlanMejoramiento.Aprendiz.Id);
+                        cmd3.Parameters.AddWithValue("@IdActividad", item);
+                        cmd3.Parameters.AddWithValue("@IdInstructor", oPlanMejoramiento.Instructor.Id);
+                        IdPlanMejoramiento = Convert.ToInt32(cmd3.ExecuteScalar());
+                        listaIdPlanMejoramiento.Add(IdPlanMejoramiento);
+                    }
+
+                    foreach (var item in oPlanMejoramiento.ResultadosIncumplidos)
+                    {
+                        string consulta4 = "Insert into PlanMejoramientoResultado values (@IdPlanMejoramiento, @IdResultadoAprendiz);";
+
+                        SqlCommand cmd4 = new SqlCommand(consulta4, cn);
+                        cmd4.CommandType = CommandType.Text;
+                        cmd4.Parameters.AddWithValue("@IdPlanMejoramiento", IdPlanMejoramiento);
+                        cmd4.Parameters.AddWithValue("@IdResultadoAprendiz", item);
+                        verificacion = cmd4.ExecuteNonQuery();
+                    }
 
                 }
             }
@@ -127,8 +159,6 @@ namespace ProyectoSena.Datos
 
                     cmd.Parameters.AddWithValue("@IdInstructor", oPlanMejoramiento.Instructor.Id);
                     cmd.Parameters.AddWithValue("@IdAprendiz", oPlanMejoramiento.Aprendiz.Id);
-                    cmd.Parameters.AddWithValue("@NombreActividad", oPlanMejoramiento.ActividadPropuesta.Nombre);
-                    cmd.Parameters.AddWithValue("@Descripcion", oPlanMejoramiento.ActividadPropuesta.Descripcion);
 
 
                     cmd.Parameters.AddWithValue("@FechaAsignacion", oPlanMejoramiento.PlanInternoComite.FechaAsignacion);
@@ -201,6 +231,36 @@ namespace ProyectoSena.Datos
 
             }
             return Verificacion;
+        }
+
+        public List<ResultadoAprendizaje> MtObtenerResultadospendientes(int IdAprendiz)
+        {
+            List<ResultadoAprendizaje> listaResultados = new List<ResultadoAprendizaje> ();
+
+            using (SqlConnection cn = ConexionDB.MtAbrirConexion())
+            {
+                cn.Open ();
+
+                string consulta = "SELECT * FROM Resultado r JOIN ResultadoAprendiz ra ON r.Id = ra.IdResultado WHERE ra.IdAprendiz = @IdAprendiz AND r.Estado = 'Pendiente'";
+
+                using(SqlCommand cmd = new SqlCommand(consulta, cn))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("@IdAprendiz", IdAprendiz);
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    if (dr.Read())
+                    {
+                        ResultadoAprendizaje oResultado = new ResultadoAprendizaje ();
+                        oResultado.Id = Convert.ToInt32 (dr["Id"]);
+                        oResultado.Nombre = dr["Nombre"].ToString();
+                        oResultado.Estado = dr["Estado"].ToString();
+                        listaResultados.Add (oResultado);
+                    }
+                }
+            }
+            return listaResultados;
         }
     }
     

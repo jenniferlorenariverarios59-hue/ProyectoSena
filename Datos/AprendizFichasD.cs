@@ -10,6 +10,7 @@ namespace ProyectoSena.Datos
 {
     public class AprendizFichasD
     {
+        // metodos para el rol de aprendiz
         public List<Ficha> MtObtenerFichasAprendiz(int IdAprendiz)
         {
             List<Ficha> listaFichas = new List<Ficha>();
@@ -126,6 +127,45 @@ namespace ProyectoSena.Datos
                 }
 
             }return listaPlanes;
+        }
+        //metodos para el rol de instructor
+        public List<AprendizM> MtObtenerAprendicesDeInstructor(int IdInstructor)
+        {
+            List<AprendizM> listaAprendices = new List<AprendizM>();
+
+            using(SqlConnection cn = ConexionDB.MtAbrirConexion())
+            {
+                cn.Open();
+
+                string consulta = "Sp_ObtenerAprendicesPorInstructor";
+
+                using(SqlCommand cmd = new SqlCommand(consulta, cn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdInstructor", IdInstructor);
+
+                    DataTable dt = new DataTable();
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        AprendizM oAprendizM = new AprendizM();
+                        oAprendizM.Id = Convert.ToInt32(item["Id"]);
+                        oAprendizM.TipoDocumento = item["TipoDocumento"].ToString();
+                        oAprendizM.NumeroDocumento = item["NumeroDocumento"].ToString();
+                        oAprendizM.Nombre = item["Nombre"].ToString();
+                        oAprendizM.Apellido = item["Apellido"].ToString();
+                        oAprendizM.Correo = item["Correo"].ToString();
+                        oAprendizM.Telefono = item["Telefono"].ToString();
+                        oAprendizM.Ficha = new Ficha();
+                        oAprendizM.Ficha.codigoFicha = item["codigoFicha"].ToString();
+                        listaAprendices.Add(oAprendizM);
+                    }
+                }
+            }
+            return listaAprendices;
         }
 
     }

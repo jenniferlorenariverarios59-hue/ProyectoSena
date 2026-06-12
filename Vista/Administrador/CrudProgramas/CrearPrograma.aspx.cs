@@ -13,6 +13,8 @@ namespace ProyectoSena.Vista.CrudProgramas
     public partial class CrearPrograma : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
+        
+        
         {
 
         }

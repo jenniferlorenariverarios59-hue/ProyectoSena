@@ -11,7 +11,7 @@ namespace ProyectoSena.Datos
         private static readonly string cadenaConexion = System.Configuration.ConfigurationManager.ConnectionStrings["ConexionDB"].ConnectionString;
 
         public static SqlConnection MtAbrirConexion()
-        {
+       {
             if (string.IsNullOrWhiteSpace(cadenaConexion))
             {
                 throw new Exception("La cadena de conexion no se a configurado correctamente ");

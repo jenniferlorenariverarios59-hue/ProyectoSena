@@ -49,20 +49,6 @@
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Ficha">
-                            <ItemTemplate>
-                                <span class="text-success fw-bold">● <%# Eval("Ficha.codigoFicha") %>
-                                </span>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-
-                        <asp:TemplateField HeaderText="Programa">
-                            <ItemTemplate>
-
-                                <%# Eval("Ficha.NombrePrograma.Nombre") %>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-
                         <asp:TemplateField HeaderText="Fecha Asignacion">
                             <ItemTemplate>
 

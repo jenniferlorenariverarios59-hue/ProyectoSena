@@ -16,7 +16,9 @@ namespace ProyectoSena.Modelo
 
         public PlanInterno PlanInternoComite { get; set; }
 
-        public ActividadesPropuestas ActividadPropuesta { get; set; }
+        public List<int> ResultadosIncumplidos { get; set; }
+
+        public List<ActividadesPropuestas> ActividadPropuesta { get; set; }
 
         public Observaciones Observacion { get; set; }
 

@@ -165,6 +165,7 @@
             </div>
             <!-- MENU -->
             <div class="sidebar-menu">
+<%--                //===============================Botones de administrador===========================================--%>
                 <asp:LinkButton ID="btnProgramas" runat="server" href="../CrudProgramas/Programas.aspx" Visible="false">
                         <span class="material-symbols-outlined" href="" >school </span>Programas 
                 </asp:LinkButton>
@@ -177,6 +178,20 @@
                 <asp:LinkButton ID="btnAprendices" runat="server" href="../CrudAprendices/Aprendices.aspx" Visible="false">
                     <span class="material-symbols-outlined">assessment </span>Aprendices 
                 </asp:LinkButton>
+
+
+<%--                //===============================Botones de instructor===============================================--%>
+
+                <asp:LinkButton ID="btnAprendicesInstructor" runat="server" href="../Instructor/ConsultarAprendices.aspx" Visible="false">
+                    <span class="material-symbols-outlined">assessment </span>Consultar mis aprendices
+                </asp:LinkButton>
+
+                <asp:LinkButton ID="btnPlanesMejoramientoInstructor" runat="server" href="../Instructor/CrudPlanMejoramento/PlanesMejoramento.aspx" Visible="false">
+                    <span class="material-symbols-outlined">assessment </span>Planes de mejoramiento
+                </asp:LinkButton>
+
+<%--                //===============================Botones de aprendiz================================================--%>
+
                 <asp:LinkButton ID="btnFichasAprendiz" runat="server" href="FichasAprendiz.aspx" Visible="false">
                     <span class="material-symbols-outlined">assessment </span> Fichas
                 </asp:LinkButton>
@@ -195,9 +210,9 @@
             <div class="mt-auto sidebar-menu">
                 <a href="#">
                     <span class="material-symbols-outlined">settings </span>Configuración </a>
-                    <asp:LinkButton ID="lnkCerrarsesion" class="text-danger" runat="server" OnClick="lnkCerrarsesion_Click">
+                <asp:LinkButton ID="lnkCerrarsesion" class="text-danger" runat="server" OnClick="lnkCerrarsesion_Click">
                         <span class="material-symbols-outlined">logout </span>Cerrar Sesión 
-                    </asp:LinkButton>
+                </asp:LinkButton>
             </div>
         </div>
         <!-- MAIN -->

@@ -52,7 +52,13 @@ namespace ProyectoSena.Logica
             return Verificacion;
         }
 
-
+        public List<ResultadoAprendizaje> MtObtenerPendientesPorAprendiz(int IdAprendiz)
+        {
+            PlanMejoramientoD oPlanMejoramientoD = new PlanMejoramientoD();
+            List<ResultadoAprendizaje> listaResultados = oPlanMejoramientoD.MtObtenerResultadospendientes(IdAprendiz);
+            return listaResultados;
+            
+        }
     }
 }
 

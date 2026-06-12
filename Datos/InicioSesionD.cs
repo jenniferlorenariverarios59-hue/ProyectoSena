@@ -77,12 +77,13 @@ namespace ProyectoSena.Datos
 
                     if (dr.Read())
                     {
+                        oInstructor = new InstructorM();
                         oInstructor.Id = Convert.ToInt32(dr["Id"]);
                         oInstructor.TipoDocumento = dr["TipoDocumento"].ToString();
                         oInstructor .NumeroDocumento = dr["NumeroDocumento"].ToString();
                         oInstructor .Nombre = dr["Nombre"].ToString();
                         oInstructor .Apellido = dr["Apellido"].ToString();
-                        oInstructor .Correo = dr["Coreo"].ToString();
+                        oInstructor .Correo = dr["Correo"].ToString();
                         oInstructor .Telefono = dr["Telefono"].ToString();
                         oInstructor .Especialidad  = dr["Especialidad"].ToString();
 
@@ -101,7 +102,7 @@ namespace ProyectoSena.Datos
             AdministradorM oAdministrador = null;
 
 
-            using (SqlConnection cn = ConexionDB.MtAbrirConexion())
+            using ( SqlConnection cn = ConexionDB.MtAbrirConexion())
             {
                 cn.Open();
                 string Consulta = @"Select * from Administrador a Where a.Correo = @Correo  and a.Contraseña = @Contraseña ";

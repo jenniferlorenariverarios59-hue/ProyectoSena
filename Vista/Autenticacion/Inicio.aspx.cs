@@ -62,6 +62,7 @@ namespace ProyectoSena.Vista
                     Session["Nombre"] = oInstructor.Nombre;
                     Session["Especialidad"] = oInstructor.Especialidad;
                     Session["Rol"] = oinicioSesion.Rol;
+                    Response.Redirect("~/Vista/Instructor/ConsultarAprendices.aspx");
                 }
                 else
                 {

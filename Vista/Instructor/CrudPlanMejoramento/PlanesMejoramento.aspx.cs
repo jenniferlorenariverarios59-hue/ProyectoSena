@@ -31,7 +31,7 @@ namespace ProyectoSena.Vista.Instructor.CrudPlanMejoramento
 
         protected void btnCrearPlanMejoramiento_Click(object sender, EventArgs e)
         {
-            Response.Redirect("CrearPlanMejoramiento.aspx");
+            Response.Redirect("CrearPlanMejoramento.aspx");
         }
 
         protected void gvPlanesMejoramiento_RowCommand(object sender, GridViewCommandEventArgs e)

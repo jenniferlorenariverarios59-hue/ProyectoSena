@@ -69,6 +69,24 @@ namespace ProyectoSena.Vista
         protected global::System.Web.UI.WebControls.LinkButton btnAprendices;
 
         /// <summary>
+        /// Control btnAprendicesInstructor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnAprendicesInstructor;
+
+        /// <summary>
+        /// Control btnPlanesMejoramientoInstructor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnPlanesMejoramientoInstructor;
+
+        /// <summary>
         /// Control btnFichasAprendiz.
         /// </summary>
         /// <remarks>
