@@ -7,11 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ProyectoSena.Vista.Instructor.CrudPlanMejoramento
+namespace ProyectoSena.Vista.Gestor
 {
 
 
-    public partial class CrearPlanMejoramento
+    public partial class WebForm1
     {
 
         /// <summary>
@@ -24,40 +24,40 @@ namespace ProyectoSena.Vista.Instructor.CrudPlanMejoramento
         protected global::System.Web.UI.WebControls.Button btnGuargarPlanMejoramiento;
 
         /// <summary>
-        /// Control txtFechaAsignacion.
+        /// Control lblFechaAsignacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaAsignacion;
+        protected global::System.Web.UI.WebControls.Label lblFechaAsignacion;
 
         /// <summary>
-        /// Control txtFechaLimite.
+        /// Control lblFechaLimite.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaLimite;
+        protected global::System.Web.UI.WebControls.Label lblFechaLimite;
 
         /// <summary>
-        /// Control txtEstado.
+        /// Control lblEstado.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEstado;
+        protected global::System.Web.UI.WebControls.Label lblEstado;
 
         /// <summary>
-        /// Control ddlAprendiz.
+        /// Control lblAprendiz.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAprendiz;
+        protected global::System.Web.UI.WebControls.Label lblAprendiz;
 
         /// <summary>
         /// Control cblResultados.
@@ -69,22 +69,22 @@ namespace ProyectoSena.Vista.Instructor.CrudPlanMejoramento
         protected global::System.Web.UI.WebControls.CheckBoxList cblResultados;
 
         /// <summary>
-        /// Control txtNombreActividad.
+        /// Control lblNombreAtividad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombreActividad;
+        protected global::System.Web.UI.WebControls.Label lblNombreAtividad;
 
         /// <summary>
-        /// Control txtDescripcionActividad.
+        /// Control lblDescripcionActividad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescripcionActividad;
+        protected global::System.Web.UI.WebControls.Label lblDescripcionActividad;
 
         /// <summary>
         /// Control btnAgregarActividad.
@@ -103,23 +103,5 @@ namespace ProyectoSena.Vista.Instructor.CrudPlanMejoramento
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvActividades;
-
-        /// <summary>
-        /// Control txtNombre.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombre;
-
-        /// <summary>
-        /// Control txtDescripcion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescripcion;
     }
 }

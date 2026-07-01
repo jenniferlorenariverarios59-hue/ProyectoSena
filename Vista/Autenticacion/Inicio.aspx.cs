@@ -93,7 +93,7 @@ namespace ProyectoSena.Vista
                 {
                     string mensaje = @"Swal.fire({
                                      icon: 'error',
-                                     title: '¡Error!',
+                                     title: '¡Error!', 
                                      text: 'Correo y/o contraseña invalidos',
                                      timer: 2000,
                                      showConfirmButton: false
@@ -106,7 +106,37 @@ namespace ProyectoSena.Vista
             }
 
 
+            else if (oinicioSesion.Rol== "Gestor")
+            {
+                GestorM oGestor = oSesionL.MtInicioGestor(oinicioSesion);
+                    
+                if(oGestor  != null)
+                {
 
+                    Session["Id"] = oGestor.Id;
+                    Session["Nombre"] = oGestor.Nombre;
+                    Session["Rol"] = oinicioSesion.Rol;
+                    Response.Redirect("~/Vista/Gestor/PlanMejoramiento.aspx");
+
+
+                }
+                else
+                {
+                    string mensaje = @"Swal.fire({
+                                     icon: 'error',
+                                     title: '¡Error!', 
+                                     text: 'Correo y/o contraseña invalidos',
+                                     timer: 2000,
+                                     showConfirmButton: false
+                                    }).then(() => {
+                                    window.location.href = 'Inicio.aspx';
+                                    });";
+
+                    ClientScript.RegisterStartupScript(this.GetType(), "Acceso", mensaje, true);
+                }
+
+
+            }
 
 
 

@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Estructura.Master" AutoEventWireup="true" CodeBehind="EdtarPlanMejoramiento.aspx.cs" Inherits="ProyectoSena.Vista.Instructor.CrudPlanMejoramento.EdtarPlanMejoramiento" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Estructura.Master" AutoEventWireup="true" CodeBehind="EditarPlanMejoramiento.aspx.cs" Inherits="ProyectoSena.Vista.Gestor.WebForm1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <main class="p-4">
+        <main class="p-4">
 
     <!-- BREADCRUMB -->
     <nav class="mb-4">
@@ -50,12 +50,12 @@
                     Fecha de asignación
            
                 </label>
-
-                <asp:TextBox ID="txtFechaAsignacion"
+                <asp:Label ID="lblFechaAsignacion" 
                     runat="server"
-                    TextMode="Date"
-                    CssClass="form-control form-control-lg">
-            </asp:TextBox>
+                    CssClass="form-control form-control-lg"
+                    ></asp:Label>
+
+     
             </div>
 
             <div class="col-md-6">
@@ -64,11 +64,11 @@
            
                 </label>
 
-                <asp:TextBox ID="txtFechaLimite"
+                <asp:Label ID="lblFechaLimite" 
                     runat="server"
-                    TextMode="Date"
-                    CssClass="form-control form-control-lg">
-            </asp:TextBox>
+                     CssClass="form-control form-control-lg"
+                    ></asp:Label>
+
             </div>
 
             <div class="col-md-6">
@@ -77,10 +77,12 @@
            
                 </label>
 
-                <asp:TextBox ID="txtEstado"
-                    runat="server"
-                    CssClass="form-control form-control-lg">
-            </asp:TextBox>
+                <asp:Label ID="lblEstado"
+                   runat="server"
+                   CssClass="form-control form-control-lg"
+                    ></asp:Label>
+
+                
             </div>
 
             <div class="col-md-6">
@@ -89,12 +91,14 @@
            
                 </label>
 
-                <asp:DropDownList ID="ddlAprendiz"
-                    runat="server"
-                    CssClass="form-select form-select-lg"
-                    AutoPostBack="true"
-                    OnSelectedIndexChanged="ddlAprendiz_SelectedIndexChanged">
-                </asp:DropDownList>
+                <asp:Label ID="lblAprendiz"
+                    
+                    runat="server" 
+                     CssClass="form-select form-select-lg"
+                    ></asp:Label>
+
+
+               
             </div>
 
         </div>
@@ -142,10 +146,13 @@
            
                 </label>
 
-                <asp:TextBox ID="txtNombreActividad"
-                    runat="server"
-                    CssClass="form-control form-control-lg">
-            </asp:TextBox>
+                <asp:Label ID="lblNombreAtividad" 
+                    runat="server" 
+                  CssClass="form-control form-control-lg">
+
+                </asp:Label>
+
+                
             </div>
 
             <div class="col-md-6">
@@ -153,11 +160,12 @@
                     Descripción
            
                 </label>
+                <asp:Label ID="lblDescripcionActividad" 
+                    runat="server" 
+                     CssClass="form-control form-control-lg">
+                    </asp:Label>
 
-                <asp:TextBox ID="txtDescripcionActividad"
-                    runat="server"
-                    CssClass="form-control form-control-lg">
-            </asp:TextBox>
+               
             </div>
 
             <div class="col-12">
@@ -196,30 +204,6 @@
                 </Columns>
 
             </asp:GridView>
-             <div class="col-md-6">
-     <label class="form-label fw-semibold">
-         Nombre de la Observacion
-
-     </label>
-
-     <asp:TextBox ID="TxtObservacion"
-         runat="server"
-         CssClass="form-control form-control-lg">
- </asp:TextBox>
-
-
-                  <div class="col-md-6">
-     <label class="form-label fw-semibold">
-        Descripcion
-
-     </label>
-
-     <asp:TextBox ID="txtDescripcion"
-         runat="server"
-         CssClass="form-control form-control-lg">
- </asp:TextBox>
- </div>
- </div>
 
         </div>
 

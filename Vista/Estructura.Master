@@ -165,7 +165,7 @@
             </div>
             <!-- MENU -->
             <div class="sidebar-menu">
-<%--                //===============================Botones de administrador===========================================--%>
+                <%--                //===============================Botones de administrador===========================================--%>
                 <asp:LinkButton ID="btnProgramas" runat="server" href="../CrudProgramas/Programas.aspx" Visible="false">
                         <span class="material-symbols-outlined" href="" >school </span>Programas 
                 </asp:LinkButton>
@@ -180,9 +180,9 @@
                 </asp:LinkButton>
 
 
-<%--                //===============================Botones de instructor===============================================--%>
+                <%--                //===============================Botones de instructor===============================================--%>
 
-                <asp:LinkButton ID="btnAprendicesInstructor" runat="server" href="../Instructor/ConsultarAprendices.aspx" Visible="false">
+                <asp:LinkButton ID="btnAprendicesInstructor" runat="server" href="../ConsultarAprendices.aspx" Visible="false">
                     <span class="material-symbols-outlined">assessment </span>Consultar mis aprendices
                 </asp:LinkButton>
 
@@ -190,7 +190,7 @@
                     <span class="material-symbols-outlined">assessment </span>Planes de mejoramiento
                 </asp:LinkButton>
 
-<%--                //===============================Botones de aprendiz================================================--%>
+                <%--                //===============================Botones de aprendiz================================================--%>
 
                 <asp:LinkButton ID="btnFichasAprendiz" runat="server" href="FichasAprendiz.aspx" Visible="false">
                     <span class="material-symbols-outlined">assessment </span> Fichas
@@ -205,7 +205,17 @@
                 <asp:LinkButton ID="btnResultados" runat="server" href="ResultadosPendientes.aspx" Visible="false">
                     <span class="material-symbols-outlined">assessment </span> Resultados Pendientes
                 </asp:LinkButton>
+
+                <%--//===========================Botones Gestor ==========================================--%>
+                 <asp:LinkButton ID="btnGestor" runat="server" href="PlanMejoramiento.aspx" Visible="false">
+                 <span class="material-symbols-outlined">assessment </span> Planes de Mejoramiento 
+                 </asp:LinkButton>
+
+
+
             </div>
+
+
             <!-- FOOTER -->
             <div class="mt-auto sidebar-menu">
                 <a href="#">

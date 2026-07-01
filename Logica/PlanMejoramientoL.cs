@@ -12,7 +12,7 @@ namespace ProyectoSena.Logica
     {
         PlanMejoramientoD oPlanMejoramientoD = new PlanMejoramientoD();
 
-        public int MtRegistrarPlanMejoramento(PlanMejoramiento oPlanMejoramento)
+        public int MtRegistrarPlanMejoramento(PlanMejoramientoM oPlanMejoramento)
         {
 
             int Verificacion = 0;
@@ -24,28 +24,28 @@ namespace ProyectoSena.Logica
 
         }
 
-        public List<PlanMejoramiento> MtObtenerPlanMejoramiento(int IdInstructor)
+        public List<PlanMejoramientoM> MtObtenerPlanMejoramiento(int IdInstructor)
         { 
 
-            List<PlanMejoramiento> listarPlanMejoramiento  = oPlanMejoramientoD.MtObtenerPlanMejoramiento(IdInstructor);
+            List<PlanMejoramientoM> listarPlanMejoramiento  = oPlanMejoramientoD.MtObtenerPlanMejoramiento(IdInstructor);
             return listarPlanMejoramiento;
 
         }
-        public int EditarAprendiz(PlanMejoramiento oPlanMejoramiento)
+        public int EditarAprendiz(PlanMejoramientoM oPlanMejoramiento)
         {
             int Verificacion = oPlanMejoramientoD.MtEditarPlanMejoramiento(oPlanMejoramiento);
             return Verificacion;
         }
 
 
-        public int MtEliminarPlanMejoramiento(PlanMejoramiento oPanMejoramiento)
+        public int MtEliminarPlanMejoramiento(PlanMejoramientoM oPanMejoramiento)
         {
             int Verificacion = oPlanMejoramientoD.MtEliminarPlanMejoramiento(oPanMejoramiento);
             return Verificacion;
         }
 
 
-        public int MtEvaluacionPlan(PlanMejoramiento oPlanMejoramiento)
+        public int MtEvaluacionPlan(PlanMejoramientoM oPlanMejoramiento)
         {
 
             int Verificacion = oPlanMejoramientoD.MtEvaluacionPlan(oPlanMejoramiento);

@@ -33,5 +33,14 @@ namespace ProyectoSena.Logica
             AdministradorM oAdministrador  = oInicioD.MtInicioAdministrador (oinicioSesion);
             return oAdministrador;
         }
+
+        public GestorM MtInicioGestor(InicioSesion inicioSesion)
+
+        {
+
+            GestorM oGestor = oInicioD.MtInicioGestor(inicioSesion);
+            return oGestor;
+        }
+
     }
 }

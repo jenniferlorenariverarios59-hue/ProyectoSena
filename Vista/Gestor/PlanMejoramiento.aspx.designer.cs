@@ -7,21 +7,12 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ProyectoSena.Vista.Instructor.CrudPlanMejoramento
+namespace ProyectoSena.Vista.Gestor
 {
 
 
-    public partial class PlanesMejoramento
+    public partial class PlanMejoramiento
     {
-
-        /// <summary>
-        /// Control btnCrearPlan.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCrearPlan;
 
         /// <summary>
         /// Control gvPlanesMejoramiento.

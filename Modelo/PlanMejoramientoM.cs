@@ -6,7 +6,7 @@ using System.Web;
 
 namespace ProyectoSena.Modelo
 {
-    public class PlanMejoramiento
+    public class PlanMejoramientoM
     {
         public int Id { get; set; }
 
@@ -25,6 +25,8 @@ namespace ProyectoSena.Modelo
         public Evidencia Evidencia { get; set; }
 
         public string TipoPlan { get; set; }
+
+        public int IdGestor { get; set; }
 
     }
 }

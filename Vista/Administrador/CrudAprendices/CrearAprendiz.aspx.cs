@@ -23,7 +23,7 @@ namespace ProyectoSena.Vista.Administrador.CrudAprendices
                 List<Ficha> listaFichas = oFichaL.MtObtenerFicha(IdAdmin);
                 ddlFicha.DataSource = listaFichas;
                 ddlFicha.DataTextField = "codigoFicha";
-                ddlFicha.DataValueField = "codigoFicha";
+                ddlFicha.DataValueField = "Id";
                 ddlFicha.DataBind();
             }
         }
@@ -42,11 +42,9 @@ namespace ProyectoSena.Vista.Administrador.CrudAprendices
             oAprendiz.Contraseña = txtContraseña.Text;
             oAprendiz.Telefono = txtTelefono.Text;
             oAprendiz.Ficha = new Ficha();
-            oAprendiz.Ficha.codigoFicha = ddlFicha.SelectedValue;
+            oAprendiz.Ficha.Id = Convert.ToInt32(ddlFicha.SelectedValue);
 
-            var FichaSeleccionada = listaFichas.Find(u => u.codigoFicha == oAprendiz.Ficha.codigoFicha);
-            oAprendiz.Ficha.Id = FichaSeleccionada.Id;
-
+            
             AprendizL oAprendizL = new AprendizL();
 
             int verificacion = oAprendizL.MtRegistrarAprendiz(oAprendiz);

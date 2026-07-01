@@ -90,9 +90,9 @@ namespace ProyectoSena.Datos
             }return lsitaObservaciones;
         }
 
-        public List<PlanMejoramiento> MtObtenerPlanes(int IdAprendiz)
+        public List<PlanMejoramientoM> MtObtenerPlanes(int IdAprendiz)
         {
-            List<PlanMejoramiento> listaPlanes = new List<PlanMejoramiento>();
+            List<PlanMejoramientoM> listaPlanes = new List<PlanMejoramientoM>();
 
             using (SqlConnection cn = ConexionDB.MtAbrirConexion())
             {
@@ -111,7 +111,7 @@ namespace ProyectoSena.Datos
 
                     foreach (DataRow item in dt.Rows)
                     {
-                        PlanMejoramiento oPlan = new PlanMejoramiento();
+                        PlanMejoramientoM oPlan = new PlanMejoramientoM();
                         oPlan.Id = Convert.ToInt32(item["Id"]);
                         oPlan.Aprendiz = new AprendizM();
                         oPlan.Aprendiz.Nombre = item["Aprendiz"].ToString();

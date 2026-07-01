@@ -101,6 +101,7 @@
                         <asp:ListItem>Aprendiz</asp:ListItem>
                         <asp:ListItem>Administrador</asp:ListItem>
                         <asp:ListItem>Instructor</asp:ListItem>
+                        <asp:ListItem>Gestor</asp:ListItem>
 
                     </asp:DropDownList>
 

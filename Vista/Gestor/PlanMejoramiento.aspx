@@ -1,9 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Estructura.Master" AutoEventWireup="true" CodeBehind="PlanesMejoramento.aspx.cs" Inherits="ProyectoSena.Vista.Instructor.CrudPlanMejoramento.PlanesMejoramento" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Estructura.Master" AutoEventWireup="true" CodeBehind="PlanMejoramiento.aspx.cs" Inherits="ProyectoSena.Vista.Gestor.PlanMejoramiento" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <!-- Content -->
+        <!-- Content -->
 
     <div class="container-fluid p-4">
         <!-- Header -->
@@ -13,7 +12,7 @@
                 <p class="text-muted">Administra y organiza los planes de mejoramiento del SENA. </p>
             </div>
             <div class="d-flex gap-2">
-                <asp:Button ID="btnCrearPlan" class="btn btn-green" runat="server" Text="Crear Plan Mejoramiento" OnClick="btnCrearPlanMejoramiento_Click" />
+               
             </div>
         </div>
         <!-- Table -->
@@ -80,13 +79,7 @@
                                     CommandName="Editar"
                                     CommandArgument='<%# Eval("Id") %>' />
 
-                                <asp:Button ID="btnEliminar"
-                                    runat="server"
-                                    Text="Eliminar"
-                                    CssClass="btn btn-sm btn-outline-danger"
-                                    CommandName="Eliminar"
-                                    CommandArgument='<%# Eval("Id") %>'
-                                    OnClientClick="return confirmarEliminar(this);" />
+                                
 
                             </ItemTemplate>
                         </asp:TemplateField>

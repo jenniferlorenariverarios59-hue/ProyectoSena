@@ -19,18 +19,22 @@ namespace ProyectoSena.Vista
                 btnFichas.Visible = true;
                 btnInstructores.Visible = true;
                 btnAprendices.Visible = true;
-            }else if (rol == "Instructor")
+            } else if (rol == "Instructor")
             {
                 btnAprendicesInstructor.Visible = true;
                 btnPlanesMejoramientoInstructor.Visible = true;
-                
-            }else if (rol == "Aprendiz")
+
+            } else if (rol == "Aprendiz")
             {
                 btnFichasAprendiz.Visible = true;
                 btnResultados.Visible = true;
                 btnObservaciones.Visible = true;
                 btnPlanesMejoramiento.Visible = true;
+            } else if (rol == "Gestor")
+            {
+                btnGestor.Visible = true;
             }
+
         }
 
         protected void lnkCerrarsesion_Click(object sender, EventArgs e)

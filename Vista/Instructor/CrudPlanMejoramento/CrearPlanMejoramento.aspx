@@ -188,10 +188,34 @@
                         <asp:BoundField
                             DataField="Descripcion"
                             HeaderText="Descripción" />
+                        
 
                     </Columns>
 
                 </asp:GridView>
+                 <div class="col-md-6">
+     <label class="form-label fw-semibold">
+         Nombre de la actividad
+
+     </label>
+
+     <asp:TextBox ID="txtNombre"
+         runat="server"
+         CssClass="form-control form-control-lg">
+ </asp:TextBox>
+
+ </div>
+                 <div class="col-md-6">
+     <label class="form-label fw-semibold">
+         Descripcion
+
+     </label>
+
+     <asp:TextBox ID="txtDescripcion"
+         runat="server"
+         CssClass="form-control form-control-lg">
+ </asp:TextBox>
+ </div>
 
             </div>
 

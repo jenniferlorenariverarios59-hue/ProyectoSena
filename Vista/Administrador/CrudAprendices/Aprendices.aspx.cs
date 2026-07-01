@@ -1,4 +1,5 @@
-﻿using ProyectoSena.Datos;
+﻿using ClosedXML.Excel;
+using ProyectoSena.Datos;
 using ProyectoSena.Logica;
 using ProyectoSena.Modelo;
 using System;
@@ -55,6 +56,55 @@ namespace ProyectoSena.Vista.Administrador.CrudAprendices
                 int verificacion = oAprendizL.MtEliminarAprendiz(aprendizSeleccionado);
                 MtCargarAprendices();
             }
+        }
+
+        protected void btnImportar_Click(object sender, EventArgs e)
+        {
+            if (!fuExcel.HasFile)
+                return;
+
+            List<AprendizM> listaProductoImportados = new List<AprendizM>();
+
+            using (XLWorkbook productos = new XLWorkbook(fuExcel.PostedFile.InputStream))
+            {
+                IXLWorksheet hoja = productos.Worksheet(1);
+
+                listaProductoImportados = hoja.RowsUsed()
+                .Skip(1)
+                .Select(fila => new AprendizM
+                {
+                    TipoDocumento = fila.Cell(1).GetString(),
+                    NumeroDocumento = fila.Cell(2).GetString(),
+                    Nombre = fila.Cell(3).GetString(),
+                    Apellido = fila.Cell(4).GetString(),
+                    Correo = fila.Cell(5).GetString(),
+                    Contraseña = fila.Cell(6).GetString(),
+                    Telefono = fila.Cell(7).GetString(),
+                    Estado = "En Formacion",
+                })
+                .ToList();
+                AprendizL oA = new AprendizL();
+                int Verificacion = oA.MtCargaMasiva(listaProductoImportados);
+                MtCargarAprendices();
+                if (Verificacion > 0)
+                {
+                    string mensaje = $@"Swal.fire({{
+        icon: 'success',
+        title: '¡Exito!',
+        text: 'Carga Masiva Completada, {Verificacion} Productos Registrados',
+        timer: 2000,
+        showConfirmButton: false
+        }});";
+
+                    ClientScript.RegisterStartupScript(this.GetType(), "Acceso", mensaje, true);
+                }
+            }
+        }
+        
+
+        protected void btnDescargar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

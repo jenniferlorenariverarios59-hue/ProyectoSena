@@ -157,6 +157,37 @@ namespace ProyectoSena.Datos
 
             return verificacion;
         }
+
+        public int MtCargaMasiva(List<AprendizM> ListarAprendiz)
+        {
+            int Verificacion = 0;
+
+            using (SqlConnection cn = ConexionDB.MtAbrirConexion())
+            {
+                cn.Open();
+
+                foreach (var item in ListarAprendiz)
+                {
+                    string consulta = @"Insert into Aprendiz values (@TipoDocumento, @NumeroDocumento ,@Nombre ,@Apellido ,@Correo, @Contraseña ,@Telefono, 'En Formación')";
+
+                    using (SqlCommand cmd = new SqlCommand(consulta, cn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@Apellido", item.Apellido);
+                        cmd.Parameters.AddWithValue("@Correo", item.Correo);
+                        cmd.Parameters.AddWithValue("@Nombre", item.Nombre);
+                        cmd.Parameters.AddWithValue("@Estado", item.Estado);
+                        cmd.Parameters.AddWithValue("@Contraseña", item.Contraseña);
+                        cmd.Parameters.AddWithValue("@NumeroDocumento", item.NumeroDocumento);
+                        cmd.Parameters.AddWithValue("@TipoDocumento", item.TipoDocumento);
+                        cmd.Parameters.AddWithValue("@Telelefono", item.Telefono);
+                        cmd.Parameters.AddWithValue("@Estado", item.Estado);
+                        Verificacion += cmd.ExecuteNonQuery() - 1;
+                    }
+                }
+            }
+            return Verificacion;
+        }
     }
 }
  

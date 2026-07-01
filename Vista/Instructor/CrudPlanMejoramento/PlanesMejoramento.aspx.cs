@@ -37,21 +37,21 @@ namespace ProyectoSena.Vista.Instructor.CrudPlanMejoramento
         protected void gvPlanesMejoramiento_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             PlanMejoramientoL oPlanMejoramientoL = new PlanMejoramientoL();
-            List<PlanMejoramiento> listaPlanMejoramiento = oPlanMejoramientoL.MtObtenerPlanMejoramiento(IdInstructor);
+            List<PlanMejoramientoM> listaPlanMejoramiento = oPlanMejoramientoL.MtObtenerPlanMejoramiento(IdInstructor);
 
             if (e.CommandName == "Editar")
             {
                 var codigo = e.CommandArgument;
-                PlanMejoramiento planSeleccionado =
+                PlanMejoramientoM planSeleccionado =
                     listaPlanMejoramiento.Find(x => x.Id == Convert.ToInt32(codigo));
                 Session["EditarPlanMejoramiento"] = planSeleccionado;
 
-                Response.Redirect("EditarPlanMejoramiento.aspx");
+                Response.Redirect("EdtarPlanMejoramiento.aspx");
             }
             else if (e.CommandName == "Eliminar")
             {
                 var codigo = e.CommandArgument;
-                PlanMejoramiento planSeleccionado = listaPlanMejoramiento.Find(u => u.Id == Convert.ToInt32(codigo));
+                PlanMejoramientoM planSeleccionado = listaPlanMejoramiento.Find(u => u.Id == Convert.ToInt32(codigo));
                 int verificacion = oPlanMejoramientoL.MtEliminarPlanMejoramiento(planSeleccionado);
                 MtCargarPlanesMejoramiento();
             }

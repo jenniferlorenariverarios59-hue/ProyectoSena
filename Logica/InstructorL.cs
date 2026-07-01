@@ -38,5 +38,10 @@ namespace ProyectoSena.Logica
              int Verificacion = oInstructorD.MtEliminarInstructor (oInstructor);
             return Verificacion;
         }
+
+       
+
+
+       
     }
 }

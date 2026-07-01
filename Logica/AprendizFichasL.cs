@@ -23,10 +23,10 @@ namespace ProyectoSena.Logica
             List<Observaciones> listaObservaciones = oAprendizFichasD.MtObtenerObservaciones(IdAprendiz);
             return listaObservaciones;
         }
-        public List<PlanMejoramiento> MtObtenerPlanes(int IdAprendiz)
+        public List<PlanMejoramientoM> MtObtenerPlanes(int IdAprendiz)
         {
             AprendizFichasD oAprendizFichasD = new AprendizFichasD();
-            List<PlanMejoramiento> listaPlanes = oAprendizFichasD.MtObtenerPlanes(IdAprendiz);
+            List<PlanMejoramientoM> listaPlanes = oAprendizFichasD.MtObtenerPlanes(IdAprendiz);
             return listaPlanes;
         }
 

@@ -55,7 +55,7 @@ namespace ProyectoSena.Vista.Instructor.CrudPlanMejoramento
             AprendizFichasL oAprendizFichasL = new AprendizFichasL();
             List<AprendizM> listaAprendices = oAprendizFichasL.MtObtenerAprendicesDeInstructor(IdInstructor);
 
-            PlanMejoramiento oPlanMejoramiento = new PlanMejoramiento();
+            PlanMejoramientoM oPlanMejoramiento = new PlanMejoramientoM();
             oPlanMejoramiento.Instructor = new InstructorM();
             oPlanMejoramiento.Instructor.Id = IdInstructor;
             oPlanMejoramiento.PlanInternoComite = new PlanInterno();
@@ -66,6 +66,10 @@ namespace ProyectoSena.Vista.Instructor.CrudPlanMejoramento
             oPlanMejoramiento.ResultadosIncumplidos = new List<int>();
             oPlanMejoramiento.Aprendiz = new AprendizM();
             oPlanMejoramiento.Aprendiz.Id = Convert.ToInt32(ddlAprendiz.SelectedValue);
+            oPlanMejoramiento.Observacion = new Observaciones();
+
+            oPlanMejoramiento.Observacion.Nombre = txtNombre.Text;
+            oPlanMejoramiento.Observacion.Descripcion = txtDescripcion.Text;
 
             foreach (ListItem item in cblResultados.Items)
             {

@@ -141,6 +141,51 @@ namespace ProyectoSena.Datos
         }
 
 
+        public GestorM MtInicioGestor( InicioSesion oInicioSesion)
+        {
+            GestorM oGestor = null;
+
+            using (SqlConnection cn = ConexionDB.MtAbrirConexion())
+            {
+                cn.Open();
+
+                string Consulta = "Select * from Gestor Where  Correo =@Correo  and Contraseña =@Contraseña";
+
+                using (SqlCommand cmd = new SqlCommand(Consulta, cn))
+                {
+
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("@RoL", oInicioSesion.Rol);
+                    cmd.Parameters.AddWithValue("@Correo", oInicioSesion.Correo);
+                    cmd.Parameters.AddWithValue("@Contraseña", oInicioSesion.Contraseña);
+
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+
+                            oGestor = new GestorM();
+                            oGestor.Id = Convert.ToInt32(dr["Id"]);
+                            oGestor.TipoDocumento = dr["TipoDocumento"].ToString();
+                            oGestor.NumeroDocumento = dr["NumeroDocumeto"].ToString();
+                            oGestor.Nombre = dr["Nombre"].ToString();
+                            oGestor.Apellido = dr["Apellido"].ToString();
+                            oGestor.Correo = dr["Correo"].ToString();
+                        } 
+
+
+                    }
+
+
+                }
+
+                return oGestor;
+
+            }
+        }
+
+
 
 
     }

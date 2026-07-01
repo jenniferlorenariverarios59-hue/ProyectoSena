@@ -126,22 +126,31 @@ namespace ProyectoSena.Datos
 
             using (SqlConnection cn = ConexionDB.MtAbrirConexion())
             {
-                cn .Open();
+                cn.Open();
 
-                using (SqlCommand cmd =  new SqlCommand(Consulta, cn))
+                using (SqlCommand cmd = new SqlCommand(Consulta, cn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Id", oInstructor.Id);
-                    Verificacion= cmd.ExecuteNonQuery();
+                    Verificacion = cmd.ExecuteNonQuery();
 
 
                 }
 
             }
 
-            return Verificacion;    
+            return Verificacion;
+
+
 
 
         }
+
+       
+
+        
+
+
     }
+
 }

@@ -17,8 +17,8 @@ namespace ProyectoSena.Logica
         {
             int Verificacion = 0;
 
-            Verificacion = oAprendizD.MtRegistrarAprendiz(oAprendiz); 
-            
+            Verificacion = oAprendizD.MtRegistrarAprendiz(oAprendiz);
+
             return Verificacion;
 
         }
@@ -38,10 +38,18 @@ namespace ProyectoSena.Logica
 
         }
 
-        public int MtEliminarAprendiz(AprendizM oAprendiz )
+        public int MtEliminarAprendiz(AprendizM oAprendiz)
         {
             int Verificacion = oAprendizD.MtEliminarAprendiz(oAprendiz);
-            return Verificacion;    
+            return Verificacion;
         }
+
+        public int MtCargaMasiva(List<AprendizM> listaaprendiz)
+        {
+            int Verificacion = oAprendizD.MtCargaMasiva(listaaprendiz);
+            return Verificacion;
+        }
+
+
     }
 }
